@@ -1,9 +1,12 @@
 package main
 
 import (
-    _ "KunLunQiLian/server-example/cmd/server/docs"
-    "KunLunQiLian/server-example/cmd/server/global"
-    "KunLunQiLian/server-example/cmd/server/router"
+	_ "KunLunQiLian/server-example/cmd/server/docs"
+	"KunLunQiLian/server-example/cmd/server/global"
+	"KunLunQiLian/server-example/cmd/server/router"
+
+	"github.com/KunLunQiLian/confserver"
+	"github.com/spf13/cobra"
 )
 
 // @title Swagger Example API
@@ -21,7 +24,10 @@ import (
 // @host petstore.swagger.io
 // @BasePath /v1
 func main() {
-    s := global.Config.Server
-    router.NewRooter(s.Engine())
-    s.Serve()
+
+	confserver.Execute(func(cmd *cobra.Command, args []string) {
+		s := global.Config.Server
+		router.NewRooter(s.Engine())
+		s.Serve()
+	})
 }

@@ -10,3 +10,5 @@ cmd/web/build/
 # testing
 cmd/web/coverage
 
+cmd/server/server
+
