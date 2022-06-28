@@ -3,13 +3,14 @@ module KunLunQiLian/server-example
 go 1.17
 
 require (
-	github.com/KunLunQiLian/confserver v0.0.3
+	github.com/KunLunQiLian/confserver v0.0.4
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-openapi/errors v0.20.2
 	github.com/go-openapi/runtime v0.24.1
 	github.com/go-openapi/strfmt v0.21.2
 	github.com/go-openapi/swag v0.21.1
 	github.com/go-openapi/validate v0.22.0
+	github.com/spf13/cobra v1.5.0
 	github.com/swaggo/swag v1.8.2
 	gorm.io/driver/mysql v1.3.4
 	gorm.io/gen v0.3.8
@@ -20,6 +21,7 @@ require (
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d // indirect
+	github.com/gin-contrib/cors v1.3.1 // indirect
 	github.com/gin-contrib/gzip v0.0.5 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-courier/envconf v1.4.0 // indirect
@@ -52,7 +54,6 @@ require (
 	github.com/pelletier/go-toml/v2 v2.0.1 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/sirupsen/logrus v1.8.1 // indirect
-	github.com/spf13/cobra v1.5.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/swaggo/files v0.0.0-20220610200504-28940afbdbfe // indirect
 	github.com/swaggo/gin-swagger v1.5.0 // indirect
