@@ -1,22 +1,22 @@
 package example
 
 import (
-    "KunLunQiLian/server-example/cmd/server/global"
-    "KunLunQiLian/server-example/internal/model"
-    "KunLunQiLian/server-example/internal/query"
-    "net/http"
+	"KunLunQiLian/server-example/cmd/server/global"
+	"KunLunQiLian/server-example/internal/model"
+	"KunLunQiLian/server-example/internal/query"
+	"net/http"
 
-    "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
 )
 
 func CarRouter(r *gin.RouterGroup) {
-    r.GET("/car", ListCar)
-    r.POST("/car", CreateCar)
+	r.GET("/car", ListCar)
+	r.POST("/car", CreateCar)
 }
 
 type Car struct {
-    Name    string `json:"name"`
-    CarType int    `json:"carType"`
+	Name    string `json:"name"`
+	CarType int    `json:"carType"`
 }
 
 // @BasePath /api/v1
@@ -32,21 +32,21 @@ type Car struct {
 // @ID ListCar
 func ListCar(ctx *gin.Context) {
 
-    q := query.Use(global.Config.DB).TExample
-    carList, err := q.WithContext(ctx).Find()
-    if err != nil {
-        ctx.JSON(http.StatusInternalServerError, err)
-    }
-    ctx.JSON(http.StatusOK, carList)
+	q := query.Use(global.Config.DB.DB()).TExample
+	carList, err := q.WithContext(ctx).Find()
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, err)
+	}
+	ctx.JSON(http.StatusOK, carList)
 }
 
 type CreateCarRequestBody struct {
-    Name    string `json:"name" binding:"required"`
-    CarType int32  `json:"carType" binding:"required"`
+	Name    string `json:"name" binding:"required"`
+	CarType int32  `json:"carType" binding:"required"`
 }
 
 type ErrorResp struct {
-    Msg string `json:"msg"`
+	Msg string `json:"msg"`
 }
 
 // @BasePath /api/v1
@@ -64,22 +64,22 @@ type ErrorResp struct {
 // @Router  /car [post]
 // @ID CreateCar
 func CreateCar(ctx *gin.Context) {
-    body := CreateCarRequestBody{}
-    err := ctx.ShouldBind(&body)
-    if err != nil {
-        ctx.JSON(http.StatusBadRequest, ErrorResp{Msg: err.Error()})
-        return
-    }
+	body := CreateCarRequestBody{}
+	err := ctx.ShouldBind(&body)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, ErrorResp{Msg: err.Error()})
+		return
+	}
 
-    m := model.TExample{}
-    m.CarType = body.CarType
-    m.Name = body.Name
+	m := model.TExample{}
+	m.CarType = body.CarType
+	m.Name = body.Name
 
-    q := query.Use(global.Config.DB).TExample
-    err = q.WithContext(ctx).Create(&m)
-    if err != nil {
-        ctx.JSON(http.StatusInternalServerError, err)
-    }
+	q := query.Use(global.Config.DB.DB()).TExample
+	err = q.WithContext(ctx).Create(&m)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, err)
+	}
 
-    ctx.JSON(http.StatusOK, m)
+	ctx.JSON(http.StatusOK, m)
 }

@@ -3,6 +3,7 @@ module KunLunQiLian/server-example
 go 1.17
 
 require (
+	github.com/KunLunQiLian/confmysql v0.0.2
 	github.com/KunLunQiLian/confserver v0.0.4
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-openapi/errors v0.20.2

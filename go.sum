@@ -2,6 +2,8 @@ github.com/Azure/azure-sdk-for-go/sdk/azcore v0.19.0/go.mod h1:h6H6c8enJmmocHUbL
 github.com/Azure/azure-sdk-for-go/sdk/azidentity v0.11.0/go.mod h1:HcM1YX14R7CJcghJGOYCgdezslRSVzqwLf/q+4Y2r/0=
 github.com/Azure/azure-sdk-for-go/sdk/internal v0.7.0/go.mod h1:yqy467j36fJxcRV2TzfVZ1pCb5vxm4BtZPUdYWe/Xo8=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
+github.com/KunLunQiLian/confmysql v0.0.2 h1:tXLSiJUnlQYMZP5VrCizF+WvVxbUBqO+PvsmYGznuAA=
+github.com/KunLunQiLian/confmysql v0.0.2/go.mod h1:O8Eu+NKOulwccoBfz/8o6nH+mow+pkKbgknFrcfjmfI=
 github.com/KunLunQiLian/confserver v0.0.4 h1:6xz1hure85YCIQHl9mRNpvfA1Mfb0/0VTqfgY7LRcvU=
 github.com/KunLunQiLian/confserver v0.0.4/go.mod h1:6OYEuoNrgs+qR8pXzCFAKzPfq8YlheGaNsPuK+bzZj4=
 github.com/KyleBanks/depth v1.2.1 h1:5h8fQADFrWtarTdtDudMmGsC7GPbOAu6RVB3ffsVFHc=
