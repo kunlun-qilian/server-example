@@ -143,8 +143,8 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "petstore.swagger.io",
-	BasePath:         "/v1",
+	Host:             "localhost",
+	BasePath:         "/api/v1",
 	Schemes:          []string{},
 	Title:            "Swagger Example API",
 	Description:      "This is a sample server Petstore server.",

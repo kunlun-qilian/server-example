@@ -1,4 +1,4 @@
-basePath: /v1
+basePath: /api/v1
 definitions:
   example.CreateCarRequestBody:
     properties:
@@ -25,7 +25,7 @@ definitions:
         description: Name
         type: string
     type: object
-host: petstore.swagger.io
+host: localhost
 info:
   contact:
     email: support@swagger.io
