@@ -3,7 +3,7 @@ module KunLunQiLian/server-example
 go 1.17
 
 require (
-	github.com/KunLunQiLian/confmysql v0.0.2
+	github.com/KunLunQiLian/confmysql v0.0.3
 	github.com/KunLunQiLian/confserver v0.0.4
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-openapi/errors v0.20.2
@@ -13,7 +13,6 @@ require (
 	github.com/go-openapi/validate v0.22.0
 	github.com/spf13/cobra v1.5.0
 	github.com/swaggo/swag v1.8.2
-	gorm.io/driver/mysql v1.3.4
 	gorm.io/gen v0.3.8
 	gorm.io/gorm v1.23.6
 	gorm.io/plugin/dbresolver v1.2.1
@@ -70,5 +69,6 @@ require (
 	google.golang.org/protobuf v1.28.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gorm.io/datatypes v1.0.7-0.20220608135749-9359a769c0b6 // indirect
+	gorm.io/driver/mysql v1.3.4 // indirect
 	gorm.io/hints v1.1.0 // indirect
 )

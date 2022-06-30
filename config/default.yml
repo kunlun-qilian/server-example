@@ -3,5 +3,5 @@ EXAMPLE_SERVER__Server_LogFormatter: json
 EXAMPLE_SERVER__Server_LogLevel: debug
 EXAMPLE_SERVER__Server_Mode: debug
 EXAMPLE_SERVER__Server_Port: "80"
-EXAMPLE_SERVER__TestEnvStr: global.config
+EXAMPLE_SERVER__TestString: "123"
 GOENV: DEV
