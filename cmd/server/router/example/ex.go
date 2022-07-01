@@ -1,6 +1,7 @@
 package example
 
 import (
+	"fmt"
 	"kunlun-qilian/server-example/cmd/server/global"
 	"kunlun-qilian/server-example/internal/model"
 	"kunlun-qilian/server-example/internal/query"
@@ -10,8 +11,17 @@ import (
 )
 
 func CarRouter(r *gin.RouterGroup) {
-	r.GET("/car", ListCar)
+	r.GET("/car", SelfCheckCar(), ListCar)
 	r.POST("/car", CreateCar)
+}
+
+func SelfCheckCar() gin.HandlerFunc {
+	return func(ctx *gin.Context) {
+		fmt.Println("前置校验")
+		ctx.Next()
+		fmt.Println("后置处理")
+
+	}
 }
 
 type Car struct {
@@ -31,7 +41,7 @@ type Car struct {
 // @Router /car [get]
 // @ID ListCar
 func ListCar(ctx *gin.Context) {
-
+	fmt.Println("业务处理")
 	q := query.Use(global.Config.DB.DB()).TExample
 	carList, err := q.WithContext(ctx).Find()
 	if err != nil {
