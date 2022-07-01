@@ -1,9 +1,9 @@
 package example
 
 import (
-	"KunLunQiLian/server-example/cmd/server/global"
-	"KunLunQiLian/server-example/internal/model"
-	"KunLunQiLian/server-example/internal/query"
+	"kunlun-qilian/server-example/cmd/server/global"
+	"kunlun-qilian/server-example/internal/model"
+	"kunlun-qilian/server-example/internal/query"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

@@ -10,7 +10,7 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"KunLunQiLian/server-example/cmd/client/client/ex"
+	"kunlun-qilian/server-example/cmd/client/client/ex"
 )
 
 // Default swagger example API HTTP client.

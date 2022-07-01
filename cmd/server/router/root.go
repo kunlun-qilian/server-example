@@ -1,22 +1,22 @@
 package router
 
 import (
-    "KunLunQiLian/server-example/cmd/server/router/example"
-    "net/http"
+	"kunlun-qilian/server-example/cmd/server/router/example"
+	"net/http"
 
-    "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
 )
 
 func Web(ctx *gin.Context) {
-    ctx.HTML(http.StatusOK, "index.html", gin.H{})
+	ctx.HTML(http.StatusOK, "index.html", gin.H{})
 }
 
 func NewRooter(r *gin.Engine) {
 
-    r.LoadHTMLGlob("../web/build/index.html")
-    r.StaticFS("/static", http.Dir("../web/build/static"))
-    r.GET("/", Web)
-    // API
-    v1 := r.Group("/api/v1")
-    example.CarRouter(v1)
+	r.LoadHTMLGlob("../web/build/index.html")
+	r.StaticFS("/static", http.Dir("../web/build/static"))
+	r.GET("/", Web)
+	// API
+	v1 := r.Group("/api/v1")
+	example.CarRouter(v1)
 }

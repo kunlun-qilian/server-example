@@ -1,11 +1,11 @@
 package main
 
 import (
-	_ "KunLunQiLian/server-example/cmd/server/docs"
-	"KunLunQiLian/server-example/cmd/server/global"
-	"KunLunQiLian/server-example/cmd/server/router"
+	_ "kunlun-qilian/server-example/cmd/server/docs"
+	"kunlun-qilian/server-example/cmd/server/global"
+	"kunlun-qilian/server-example/cmd/server/router"
 
-	"github.com/KunLunQiLian/confserver"
+	"github.com/kunlun-qilian/confserver"
 	"github.com/spf13/cobra"
 )
 

@@ -15,7 +15,7 @@ import (
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"KunLunQiLian/server-example/cmd/client/models"
+	"kunlun-qilian/server-example/cmd/client/models"
 )
 
 // NewCreateCarParams creates a new CreateCarParams object,

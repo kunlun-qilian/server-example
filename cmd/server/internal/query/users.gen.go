@@ -16,7 +16,7 @@ import (
 
 	"gorm.io/plugin/dbresolver"
 
-	"KunLunQiLian/server-example/internal/model"
+	"kunlun-qilian/server-example/internal/model"
 )
 
 func newUser(db *gorm.DB) user {

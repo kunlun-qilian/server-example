@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"KunLunQiLian/server-example/cmd/client/models"
+	"kunlun-qilian/server-example/cmd/client/models"
 )
 
 // ListCarReader is a Reader for the ListCar structure.

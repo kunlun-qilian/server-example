@@ -16,7 +16,7 @@ import (
 
 	"gorm.io/plugin/dbresolver"
 
-	"KunLunQiLian/server-example/internal/model"
+	"kunlun-qilian/server-example/internal/model"
 )
 
 func newTExample(db *gorm.DB) tExample {

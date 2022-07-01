@@ -1,16 +1,16 @@
-module KunLunQiLian/server-example
+module kunlun-qilian/server-example
 
 go 1.17
 
 require (
-	github.com/KunLunQiLian/confmysql v0.0.3
-	github.com/KunLunQiLian/confserver v0.0.4
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-openapi/errors v0.20.2
 	github.com/go-openapi/runtime v0.24.1
 	github.com/go-openapi/strfmt v0.21.2
 	github.com/go-openapi/swag v0.21.1
 	github.com/go-openapi/validate v0.22.0
+	github.com/kunlun-qilian/confmysql v0.0.4
+	github.com/kunlun-qilian/confserver v0.0.5
 	github.com/spf13/cobra v1.5.0
 	github.com/swaggo/swag v1.8.2
 	gorm.io/gen v0.3.8

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"KunLunQiLian/server-example/cmd/server/global"
+	"kunlun-qilian/server-example/cmd/server/global"
 
 	"gorm.io/gen"
 )
