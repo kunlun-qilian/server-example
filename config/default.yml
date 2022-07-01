@@ -1,7 +1,0 @@
-EXAMPLE_SERVER__DB_DSN: root:123456@tcp(127.0.0.1:33306)/example?charset=utf8mb4&parseTime=True&loc=Local
-EXAMPLE_SERVER__Server_LogFormatter: json
-EXAMPLE_SERVER__Server_LogLevel: debug
-EXAMPLE_SERVER__Server_Mode: debug
-EXAMPLE_SERVER__Server_Port: "80"
-EXAMPLE_SERVER__TestString: "123"
-GOENV: DEV
