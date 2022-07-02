@@ -31,9 +31,9 @@ func Authorization() gin.HandlerFunc {
 
 func NewRooter(r *gin.Engine) {
 
-	r.LoadHTMLGlob("../web/build/index.html")
-	r.StaticFS("/static", http.Dir("../web/build/static"))
-	r.GET("/", Web)
+	//r.LoadHTMLGlob("../web/build/index.html")
+	//r.StaticFS("/static", http.Dir("../web/build/static"))
+	//r.GET("/", Web)
 	// API
 	v1 := r.Group("/api/v1", Authorization())
 	example.CarRouter(v1)

@@ -1,24 +1,16 @@
 package global
 
 import (
-	"kunlun-qilian/server-example/internal/model"
-
 	"github.com/kunlun-qilian/confmysql"
 	"github.com/kunlun-qilian/confserver"
+	"kunlun-qilian/server-example/internal/model"
 )
 
 func init() {
 	confserver.SetServiceName("example-server", "..")
 	confserver.ConfP(&Config)
 
-	// migrate 数据库 命令
 	confserver.AddCommand(Config.DB.Commands()...)
-}
-
-// 需要migrate 到数据库的信息
-var AutoMigrateModelList = []interface{}{
-	model.User{},
-	model.TExample{},
 }
 
 var Config = struct {
@@ -29,15 +21,18 @@ var Config = struct {
 }{
 	Server: &confserver.Server{
 		Mode: "debug",
+		LogOption: confserver.LogOption{
+			LogLevel: "debug",
+		},
 	},
 
 	DB: &confmysql.MySQL{
-		DSN: "root:123456@tcp(127.0.0.1:33306)/example?charset=utf8mb4&parseTime=True&loc=Local",
-		AutoMigrateConfig: &confmysql.AutoMigrateConfig{
-			Models:    AutoMigrateModelList,
-			ModelPath: "./internal/model",
-			QueryPath: "./internal/query",
-		},
+		Host:     "127.0.0.1",
+		User:     "root",
+		Port:     33306,
+		DBName:   "example",
+		Password: "123456",
+		Database: model.DB,
 	},
 	TestEnvStr: "global.config",
 }

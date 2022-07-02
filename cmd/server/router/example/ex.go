@@ -2,9 +2,9 @@ package example
 
 import (
 	"fmt"
+	"github.com/go-courier/sqlx/v2/builder"
 	"kunlun-qilian/server-example/cmd/server/global"
 	"kunlun-qilian/server-example/internal/model"
-	"kunlun-qilian/server-example/internal/query"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -42,17 +42,25 @@ type Car struct {
 // @ID ListCar
 func ListCar(ctx *gin.Context) {
 	fmt.Println("业务处理")
-	q := query.Use(global.Config.DB.DB()).TExample
-	carList, err := q.WithContext(ctx).Find()
+	ex := model.Example{}
+
+	cs := model.NewCondRules()
+	where := builder.And(
+		cs.When(true, ex.FieldName().Eq("bbb")),
+	)
+	where.Or(cs.When(true, ex.FieldCarType().Eq(123)))
+
+	exList, err := ex.List(global.Config.DB, where)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, err)
+		return
 	}
-	ctx.JSON(http.StatusOK, carList)
+	ctx.JSON(http.StatusOK, exList)
 }
 
 type CreateCarRequestBody struct {
 	Name    string `json:"name" binding:"required"`
-	CarType int32  `json:"carType" binding:"required"`
+	CarType int    `json:"carType" binding:"required"`
 }
 
 type ErrorResp struct {
@@ -80,16 +88,16 @@ func CreateCar(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, ErrorResp{Msg: err.Error()})
 		return
 	}
-
-	m := model.TExample{}
+	//
+	m := model.Example{}
 	m.CarType = body.CarType
 	m.Name = body.Name
 
-	q := query.Use(global.Config.DB.DB()).TExample
-	err = q.WithContext(ctx).Create(&m)
+	err = m.Create(global.Config.DB)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, err)
+		return
 	}
+	ctx.JSON(http.StatusOK, nil)
 
-	ctx.JSON(http.StatusOK, m)
 }
