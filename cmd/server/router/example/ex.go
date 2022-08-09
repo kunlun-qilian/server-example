@@ -2,10 +2,11 @@ package example
 
 import (
 	"fmt"
-	"github.com/go-courier/sqlx/v2/builder"
 	"kunlun-qilian/server-example/cmd/server/global"
 	"kunlun-qilian/server-example/internal/model"
 	"net/http"
+
+	"github.com/go-courier/sqlx/v2/builder"
 
 	"github.com/gin-gonic/gin"
 )
@@ -37,7 +38,7 @@ type Car struct {
 // @Tags ex
 // @Accept json
 // @Produce json
-// @Success 200 {object}  []model.TExample
+// @Success 200 {object}  []model.Example
 // @Router /car [get]
 // @ID ListCar
 func ListCar(ctx *gin.Context) {
@@ -76,7 +77,7 @@ type ErrorResp struct {
 // @Accept json
 // @Produce json
 // @Param ReqeustBody body CreateCarRequestBody true "Create Car"
-// @Success 200 {object} model.TExample 成功
+// @Success 200 {object} model.Example 成功
 // @Success 400 {object} ErrorResp 失败
 // @Success 500 {object} ErrorResp 失败
 // @Router  /car [post]

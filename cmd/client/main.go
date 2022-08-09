@@ -1,24 +1,33 @@
 package main
 
 import (
+	"context"
 	"fmt"
-	"log"
+	"kunlun-qilian/server-example/cmd/client/client_server"
+	"kunlun-qilian/server-example/cmd/client/global"
+	"time"
 
-	apiclient "kunlun-qilian/server-example/cmd/client/client/ex"
-
-	httptransport "github.com/go-openapi/runtime/client"
-	"github.com/go-openapi/strfmt"
+	"github.com/kunlun-qilian/confclient"
 )
 
 func main() {
 
-	transport := httptransport.New("127.0.0.1", "/api/v1", []string{"http"})
-	cli := apiclient.New(transport, strfmt.Default)
-	resp, err := cli.ListCar(apiclient.NewListCarParams())
+	cli, err := client_server.NewClientWithResponses(global.Config.Cli.ApiServer(), client_server.WithRequestEditorFn(confclient.WithTrace))
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
-	for _, m := range resp.Payload {
-		fmt.Println(m)
+
+	for {
+		resp, err := cli.ListCarWithResponse(context.Background())
+		if err != nil {
+			fmt.Println("server err:", err.Error())
+		} else {
+			fmt.Println("orgin resp: ", resp)
+			if resp.JSON200 != nil {
+				fmt.Println("resp: ", resp.JSON200)
+			}
+		}
+		time.Sleep(time.Second * 3)
 	}
+
 }

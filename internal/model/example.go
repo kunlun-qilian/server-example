@@ -1,6 +1,6 @@
 package model
 
-//go:generate tools gen model2 Example --database DB
+//go:generate klctl gen model2 Example --database DB
 // @def primary ID
 // @def unique_index I_name_id Name
 // @def index I_ff_user UserID FF

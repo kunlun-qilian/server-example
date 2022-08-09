@@ -45,7 +45,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/model.TExample"
+                                "$ref": "#/definitions/model.Example"
                             }
                         }
                     }
@@ -79,7 +79,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/model.TExample"
+                            "$ref": "#/definitions/model.Example"
                         }
                     },
                     "400": {
@@ -122,17 +122,20 @@ const docTemplate = `{
                 }
             }
         },
-        "model.TExample": {
+        "model.Example": {
             "type": "object",
             "properties": {
-                "car_type": {
+                "CarType": {
                     "type": "integer"
                 },
-                "id": {
-                    "type": "integer"
+                "ff": {
+                    "type": "string"
                 },
                 "name": {
                     "description": "Name",
+                    "type": "string"
+                },
+                "userID": {
                     "type": "string"
                 }
             }
