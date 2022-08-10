@@ -2,6 +2,7 @@ package example
 
 import (
 	"fmt"
+	"github.com/kunlun-qilian/confserver"
 	"kunlun-qilian/server-example/cmd/server/global"
 	"kunlun-qilian/server-example/internal/model"
 	"net/http"
@@ -60,8 +61,8 @@ func ListCar(ctx *gin.Context) {
 }
 
 type CreateCarRequestBody struct {
-	Name    string `json:"name" binding:"required"`
-	CarType int    `json:"carType" binding:"required"`
+	Name    string `json:"name"`
+	CarType int    `json:"carType"`
 }
 
 type ErrorResp struct {
@@ -84,7 +85,7 @@ type ErrorResp struct {
 // @ID CreateCar
 func CreateCar(ctx *gin.Context) {
 	body := CreateCarRequestBody{}
-	err := ctx.ShouldBind(&body)
+	err := confserver.Bind(ctx, &body)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, ErrorResp{Msg: err.Error()})
 		return
