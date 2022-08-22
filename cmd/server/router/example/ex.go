@@ -13,7 +13,7 @@ import (
 )
 
 func CarRouter(r *gin.RouterGroup) {
-	r.GET("/car", SelfCheckCar(), ListCar)
+	r.GET("/car/:id", SelfCheckCar(), ListCar)
 	r.POST("/car", CreateCar)
 }
 
@@ -31,6 +31,11 @@ type Car struct {
 	CarType int    `json:"carType"`
 }
 
+type ListCarParam struct {
+	ID   string `in:"path" name:"id"`
+	Name string `in:"query" name:"name"`
+}
+
 // @BasePath /api/v1
 // PingExample godoc
 // @Summary ListCar
@@ -43,6 +48,15 @@ type Car struct {
 // @Router /car [get]
 // @ID ListCar
 func ListCar(ctx *gin.Context) {
+
+	param := ListCarParam{}
+	err := confserver.Bind(ctx, &param)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, err)
+		return
+	}
+	fmt.Println(">>>>", param)
+
 	fmt.Println("业务处理")
 	ex := model.Example{}
 

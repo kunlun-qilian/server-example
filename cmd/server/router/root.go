@@ -1,6 +1,7 @@
 package router
 
 import (
+	"github.com/kunlun-qilian/confserver"
 	"github.com/sirupsen/logrus"
 	"kunlun-qilian/server-example/cmd/server/router/example"
 	"net/http"
@@ -13,13 +14,13 @@ func Web(ctx *gin.Context) {
 }
 
 type AuthorizationParam struct {
-	Authorization string `header:"Authorization" binding:"required" `
+	Authorization string `name:"Authorization,omitempty" in:"header" `
 }
 
 func Authorization() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		a := AuthorizationParam{}
-		err := ctx.BindHeader(&a)
+		err := confserver.Bind(ctx, &a)
 		if err != nil {
 			logrus.Warn("Authorization is nil")
 			ctx.JSON(http.StatusBadRequest, err)

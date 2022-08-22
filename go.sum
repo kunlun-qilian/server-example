@@ -146,8 +146,8 @@ github.com/kunlun-qilian/confclient v0.0.1 h1:i0o8Y8hcPVATTWR+i93oX6lFOezWtlHpcE
 github.com/kunlun-qilian/confclient v0.0.1/go.mod h1:OONJTBDaFGEjbLp8hlQ45qFa7LlN8zv8SO6t3DRiWlI=
 github.com/kunlun-qilian/confmysql v1.0.4 h1:juf6AGQjkjGL1h2wQosxr3F1ze6arI40O1/PWvVbZek=
 github.com/kunlun-qilian/confmysql v1.0.4/go.mod h1:g60vKRJnsj0YcrZva/HQ3Qma8ig2nNqP2fI5UW5YPoc=
-github.com/kunlun-qilian/confserver v0.0.9 h1:B0SYNa7ql25IXJu3y5dgxQ7VDDrb7I2J/x9c6KAEn7A=
-github.com/kunlun-qilian/confserver v0.0.9/go.mod h1:hGOV6hxmmvMjm1t7pO5iyvbSdH0s2o+bCXlUpDBXIqY=
+github.com/kunlun-qilian/confserver v0.0.10 h1:ZYNqt/bes5DB1DvDPGNZh09c+I8dCn5wDb6pBAPQpoU=
+github.com/kunlun-qilian/confserver v0.0.10/go.mod h1:hGOV6hxmmvMjm1t7pO5iyvbSdH0s2o+bCXlUpDBXIqY=
 github.com/leodido/go-urn v1.1.0/go.mod h1:+cyI34gQWZcE1eQU7NVgKkkzdXDQHr1dBMtdAPozLkw=
 github.com/leodido/go-urn v1.2.0/go.mod h1:+8+nEpDfqqsY+g338gtMEUOtuK+4dEMhiQEgxpxOKII=
 github.com/leodido/go-urn v1.2.1 h1:BqpAaACuzVSgi/VLzGZIobT2z4v53pjosyNd9Yv6n/w=
