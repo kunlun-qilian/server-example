@@ -6,10 +6,9 @@ require (
 	github.com/getkin/kin-openapi v0.98.0
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-courier/sqlx/v2 v2.23.11
-	github.com/julienschmidt/httprouter v1.3.0
 	github.com/kunlun-qilian/confclient v0.0.1
 	github.com/kunlun-qilian/confmysql v1.0.4
-	github.com/kunlun-qilian/confserver v0.0.10
+	github.com/kunlun-qilian/confserver v0.2.2
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.5.0
 	github.com/swaggo/swag v1.8.2
@@ -20,6 +19,7 @@ require (
 	github.com/fatih/color v1.12.0 // indirect
 	github.com/gin-contrib/cors v1.3.1 // indirect
 	github.com/gin-contrib/gzip v0.0.5 // indirect
+	github.com/gin-contrib/pprof v1.4.0 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-courier/courier v1.5.0 // indirect
 	github.com/go-courier/enumeration v1.3.1 // indirect
@@ -46,6 +46,7 @@ require (
 	github.com/invopop/yaml v0.1.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
+	github.com/julienschmidt/httprouter v1.3.0 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-colorable v0.1.8 // indirect

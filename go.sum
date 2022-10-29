@@ -23,6 +23,8 @@ github.com/gin-contrib/cors v1.3.1 h1:doAsuITavI4IOcd0Y19U4B+O0dNWihRyX//nn4sEmg
 github.com/gin-contrib/cors v1.3.1/go.mod h1:jjEJ4268OPZUcU7k9Pm653S7lXUGcqMADzFA61xsmDk=
 github.com/gin-contrib/gzip v0.0.5 h1:mhnVU32YnnBh2LPH2iqRqsA/eR7SAqRaD388jL2s/j0=
 github.com/gin-contrib/gzip v0.0.5/go.mod h1:OPIK6HR0Um2vNmBUTlayD7qle4yVVRZT0PyhdUigrKk=
+github.com/gin-contrib/pprof v1.4.0 h1:XxiBSf5jWZ5i16lNOPbMTVdgHBdhfGRD5PZ1LWazzvg=
+github.com/gin-contrib/pprof v1.4.0/go.mod h1:RrehPJasUVBPK6yTUwOl8/NP6i0vbUgmxtis+Z5KE90=
 github.com/gin-contrib/sse v0.1.0 h1:Y/yl/+YNO8GZSjAhjMsSuLt29uWRFHdHYUb5lYOV9qE=
 github.com/gin-contrib/sse v0.1.0/go.mod h1:RHrZQHXnP2xjPF+u1gW/2HnVO7nvIa9PG3Gm+fLHvGI=
 github.com/gin-gonic/gin v1.5.0/go.mod h1:Nd6IXA8m5kNZdNEHMBd93KT+mdY3+bewLgRvmCsR2Do=
@@ -146,8 +148,8 @@ github.com/kunlun-qilian/confclient v0.0.1 h1:i0o8Y8hcPVATTWR+i93oX6lFOezWtlHpcE
 github.com/kunlun-qilian/confclient v0.0.1/go.mod h1:OONJTBDaFGEjbLp8hlQ45qFa7LlN8zv8SO6t3DRiWlI=
 github.com/kunlun-qilian/confmysql v1.0.4 h1:juf6AGQjkjGL1h2wQosxr3F1ze6arI40O1/PWvVbZek=
 github.com/kunlun-qilian/confmysql v1.0.4/go.mod h1:g60vKRJnsj0YcrZva/HQ3Qma8ig2nNqP2fI5UW5YPoc=
-github.com/kunlun-qilian/confserver v0.0.10 h1:ZYNqt/bes5DB1DvDPGNZh09c+I8dCn5wDb6pBAPQpoU=
-github.com/kunlun-qilian/confserver v0.0.10/go.mod h1:hGOV6hxmmvMjm1t7pO5iyvbSdH0s2o+bCXlUpDBXIqY=
+github.com/kunlun-qilian/confserver v0.2.2 h1:ll5fzYEtGO5v9Q3Knt171OIAHF49IW0qdoQgrEftuBk=
+github.com/kunlun-qilian/confserver v0.2.2/go.mod h1:sJyYwtBCm75m9ICSacSJBGzcMNYKw/37o5/X38zPIXI=
 github.com/leodido/go-urn v1.1.0/go.mod h1:+cyI34gQWZcE1eQU7NVgKkkzdXDQHr1dBMtdAPozLkw=
 github.com/leodido/go-urn v1.2.0/go.mod h1:+8+nEpDfqqsY+g338gtMEUOtuK+4dEMhiQEgxpxOKII=
 github.com/leodido/go-urn v1.2.1 h1:BqpAaACuzVSgi/VLzGZIobT2z4v53pjosyNd9Yv6n/w=

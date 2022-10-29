@@ -1,11 +1,11 @@
 package example
 
 import (
-	"fmt"
-	"github.com/kunlun-qilian/confserver"
 	"kunlun-qilian/server-example/cmd/server/global"
 	"kunlun-qilian/server-example/internal/model"
 	"net/http"
+
+	"github.com/kunlun-qilian/confserver"
 
 	"github.com/go-courier/sqlx/v2/builder"
 
@@ -13,17 +13,8 @@ import (
 )
 
 func CarRouter(r *gin.RouterGroup) {
-	r.GET("/car/:id", SelfCheckCar(), ListCar)
+	r.GET("/car/:id", ListCar)
 	r.POST("/car", CreateCar)
-}
-
-func SelfCheckCar() gin.HandlerFunc {
-	return func(ctx *gin.Context) {
-		fmt.Println("前置校验")
-		ctx.Next()
-		fmt.Println("后置处理")
-
-	}
 }
 
 type Car struct {
@@ -32,7 +23,9 @@ type Car struct {
 }
 
 type ListCarParam struct {
-	ID   string `in:"path" name:"id"`
+	// in path
+	ID string `in:"path" name:"id"`
+	// in query
 	Name string `in:"query" name:"name"`
 }
 
@@ -55,9 +48,7 @@ func ListCar(ctx *gin.Context) {
 		ctx.JSON(http.StatusInternalServerError, err)
 		return
 	}
-	fmt.Println(">>>>", param)
 
-	fmt.Println("业务处理")
 	ex := model.Example{}
 
 	cs := model.NewCondRules()

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	_ "kunlun-qilian/server-example/cmd/server/docs"
 	"kunlun-qilian/server-example/cmd/server/global"
 	"kunlun-qilian/server-example/cmd/server/router"
@@ -28,6 +29,6 @@ func main() {
 	confserver.Execute(func(cmd *cobra.Command, args []string) {
 		s := global.Config.Server
 		router.NewRooter(s.Engine())
-		s.Serve()
+		s.Serve(context.Background())
 	})
 }
