@@ -14,7 +14,7 @@ import (
 
 func CarRouter(r *gin.RouterGroup) {
 	r.GET("/car/:id", ListCar)
-	r.POST("/car", CreateCar)
+	r.POST("/car/:userID", CreateCar)
 }
 
 type Car struct {
@@ -70,6 +70,12 @@ type CreateCarRequestBody struct {
 	CarType int    `json:"carType"`
 }
 
+type CreateCarReqeust struct {
+	FF                   string `in:"query" name:"ff"`
+	UserID               string `in:"path" name:"userID"`
+	CreateCarRequestBody `in:"body"`
+}
+
 type ErrorResp struct {
 	Msg string `json:"msg"`
 }
@@ -82,23 +88,27 @@ type ErrorResp struct {
 // @Tags ex
 // @Accept json
 // @Produce json
-// @Param ReqeustBody body CreateCarRequestBody true "Create Car"
-// @Success 200 {object} model.Example 成功
-// @Success 400 {object} ErrorResp 失败
-// @Success 500 {object} ErrorResp 失败
+// @Param ReqeustBody body CreateCarReqeust true "Create Car"
+// @Success 200 {object} model.Example OK
+// @Success 400 {object} ErrorResp Error
+// @Success 500 {object} ErrorResp Error
 // @Router  /car [post]
 // @ID CreateCar
 func CreateCar(ctx *gin.Context) {
-	body := CreateCarRequestBody{}
-	err := confserver.Bind(ctx, &body)
+	req := CreateCarReqeust{}
+	err := confserver.Bind(ctx, &req)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, ErrorResp{Msg: err.Error()})
+		ctx.AbortWithStatusJSON(http.StatusBadRequest, ErrorResp{Msg: err.Error()})
 		return
 	}
+
 	//
 	m := model.Example{}
-	m.CarType = body.CarType
-	m.Name = body.Name
+	m.FF = req.FF
+	m.CarType = req.CarType
+	m.Name = req.Name
+	m.UserID = req.UserID
+	m.SetNowForCreate()
 
 	err = m.Create(global.Config.DB)
 	if err != nil {

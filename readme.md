@@ -2,12 +2,21 @@
 
 # It is [Gin](https://github.com/gin-gonic/gin)!
 
-[confserver](https://github.com/kunlun-qilian/confserver)  provide a new function named Bind() to validate and bind values in http request,this function is more convenient than gin's function
+[confserver](https://github.com/kunlun-qilian/confserver)  
+- [x] provide a new function named Bind() to validate and bind values in http request,this function is more convenient than gin's function
+- [x] print log
+- [x] pprof
+- [x] default swagger   
+- [x] inject env
+- [x] trace
+
+[confclient](https://github.com/kunlun-qilian/confclient)
+- [] trace with jaeger
 
 ```
 func CarRouter(r *gin.RouterGroup) {
 	r.GET("/car/:id", ListCar)
-	r.POST("/car", CreateCar)
+	r.POST("/car/:userID", CreateCar)
 }
 
 type Car struct {
@@ -56,6 +65,61 @@ func ListCar(ctx *gin.Context) {
 		return
 	}
 	ctx.JSON(http.StatusOK, exList)
+}
+
+
+type CreateCarRequestBody struct {
+	Name    string `json:"name"`
+	CarType int    `json:"carType"`
+}
+
+type CreateCarReqeust struct {
+	FF                   string `in:"query" name:"ff"`     <------  mark in query
+	UserID               string `in:"path" name:"userID"`  <------  mark in path    	r.POST("/car/:userID", CreateCar)
+	CreateCarRequestBody `in:"body"`                       <------  mark in body
+}
+
+type ErrorResp struct {
+	Msg string `json:"msg"`
+}
+
+// @BasePath /api/v1
+// PingExample godoc
+// @Summary CreateCar
+// @Schemes
+// @Description Create Car
+// @Tags ex
+// @Accept json
+// @Produce json
+// @Param ReqeustBody body CreateCarReqeust true "Create Car"
+// @Success 200 {object} model.Example OK
+// @Success 400 {object} ErrorResp Error
+// @Success 500 {object} ErrorResp Error
+// @Router  /car [post]
+// @ID CreateCar
+func CreateCar(ctx *gin.Context) {
+	req := CreateCarReqeust{}
+	err := confserver.Bind(ctx, &req)      <------- Bind
+	if err != nil {
+		ctx.AbortWithStatusJSON(http.StatusBadRequest, ErrorResp{Msg: err.Error()})
+		return
+	}
+
+	//
+	m := model.Example{}
+	m.FF = req.FF
+	m.CarType = req.CarType
+	m.Name = req.Name
+	m.UserID = req.UserID
+	m.SetNowForCreate()
+
+	err = m.Create(global.Config.DB)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, err)
+		return
+	}
+	ctx.JSON(http.StatusOK, nil)
+
 }
 
 ```
@@ -136,8 +200,9 @@ EXAMPLE_SERVER__TestEnvStr: from.local.yml
 
 
 ## ORM
-[Sqlx](https://github.com/go-courier/sqlx)
-use [klctl](https://github.com/kunlun-qilian/klctl) generate model
+Use [Sqlx](https://github.com/go-courier/sqlx)
+
+[klctl](https://github.com/kunlun-qilian/klctl) can generate model
 inerternal/model/example.go
 ```
 //go:generate klctl gen model2 Example --database DB
@@ -156,6 +221,7 @@ type Example struct {
 
 ## Openapi and sdk
 use gin swagger [swag](https://github.com/swaggo/swag) [swagger](https://github.com/go-swagger/go-swagger)
+
 use [klctl](https://github.com/kunlun-qilian/klctl) convert swagger2.0 to openapi3.0
 
 ### generate openapi3.0
