@@ -73,6 +73,7 @@ type CreateCarRequestBody struct {
 type CreateCarReqeust struct {
 	FF                   string `in:"query" name:"ff"`
 	UserID               string `in:"path" name:"userID"`
+	CanBeEmpty           string `in:"query" name:"canBeEmpty,omitempty"`
 	CreateCarRequestBody `in:"body"`
 }
 

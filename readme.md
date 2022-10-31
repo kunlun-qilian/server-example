@@ -79,7 +79,8 @@ type CreateCarRequestBody struct {
 
 type CreateCarReqeust struct {
 	FF                   string `in:"query" name:"ff"`     <------  mark in query
-	UserID               string `in:"path" name:"userID"`  <------  mark in path    	r.POST("/car/:userID", CreateCar)
+	UserID               string `in:"path" name:"userID"`  <------  mark in path r.POST("/car/:userID", CreateCar)
+	CanBeEmpty           string `in:"query" name:"canBeEmpty,omitempty"` <----- mark in query but can be ignored
 	CreateCarRequestBody `in:"body"`                       <------  mark in body
 }
 
