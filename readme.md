@@ -1,18 +1,22 @@
-# Start
-
 # It is [Gin](https://github.com/gin-gonic/gin)!
 
-[confserver](https://github.com/kunlun-qilian/confserver)  
+## [confserver](https://github.com/kunlun-qilian/confserver)  
 - [x] provide a new function named Bind() to validate and bind values in http request,this function is more convenient than gin's function
 - [x] print log
 - [x] pprof
 - [x] default swagger   
 - [x] inject env
-- [x] trace
+- [x] generate dockerfile 
+- [x] inject traceID span
+- [ ] trace with jaeger
 
-[confclient](https://github.com/kunlun-qilian/confclient)
-- [] trace with jaeger
 
+## [confclient](https://github.com/kunlun-qilian/confclient)
+- [x] inject trace span in header
+
+## Code example
+
+### Server
 ```
 func CarRouter(r *gin.RouterGroup) {
 	r.GET("/car/:id", ListCar)
