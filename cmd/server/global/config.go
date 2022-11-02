@@ -1,10 +1,9 @@
 package global
 
 import (
-	"kunlun-qilian/server-example/internal/model"
-
-	"github.com/kunlun-qilian/confmysql"
+	"github.com/kunlun-qilian/confmysql/v2"
 	"github.com/kunlun-qilian/confserver"
+	"kunlun-qilian/server-example/internal/model"
 )
 
 func init() {
