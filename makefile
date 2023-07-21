@@ -25,11 +25,3 @@ openapi: swagger
 # client
 client:
 	klctl gen client server  --output ./cmd/client --spec-url http://127.0.0.1/example-server
-
-
-gen-web:
-	npx create-react-app web --template typescript
-
-
-gen-web-client:
-	restful-react import --file ./cmd/server/docs/swagger.json  --output ./cmd/web/src/client-bff.ts
