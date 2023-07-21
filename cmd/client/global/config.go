@@ -10,10 +10,10 @@ func init() {
 }
 
 var Config = struct {
-	Cli     *confclient.RestClient
+	Cli     *confclient.Client
 	TestEnv string `env:""`
 }{
-	Cli: &confclient.RestClient{
+	Cli: &confclient.Client{
 		Host:     "127.0.0.1",
 		Port:     80,
 		Protocol: "http",

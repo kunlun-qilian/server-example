@@ -1,8 +1,8 @@
-
-FROM docker.io/library/golang:1.17-buster AS build-env
+FROM dockerproxy.com/library/golang:1.19-buster AS build-env
 
 FROM build-env AS builder
 
+ARG GOPROXY=https://goproxy.cn,direct
 WORKDIR /go/src
 COPY ./ ./
 
@@ -13,8 +13,8 @@ RUN make build WORKSPACE=server
 FROM alpine
 COPY --from=builder /go/src/cmd/server/server /go/bin/example-server
 
-COPY --from=builder /go/src/cmd/server/openapi.json /go/bin/openapi.json
 EXPOSE 80
+COPY --from=builder /go/src/cmd/server/openapi.json /go/bin/openapi.json
 
 ARG PROJECT_NAME
 ARG PROJECT_VERSION

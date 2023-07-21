@@ -57,7 +57,7 @@ func ListCar(ctx *gin.Context) {
 	)
 	where.Or(cs.When(true, ex.FieldCarType().Eq(123)))
 
-	exList, err := ex.List(global.Config.DB, where)
+	exList, err := ex.List(global.Config.DB.WithContext(confserver.RequestContextFromGinContext(ctx)), where)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, err)
 		return
